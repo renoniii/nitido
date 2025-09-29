@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    @apply bg-white text-neutral-900;
+}
+
+html.dark {
+    @apply bg-neutral-950 text-white;
+}
+
+:root {
+    --color-text-base: 82 82 82; /* neutral-600 */
+    --color-text-muted: 115 115 115; /* neutral-500 */
+    --color-bg: 249 249 246;
+}
+
+.dark {
+    --color-text-base: 255 255 255; /* blanco */
+    --color-text-muted: 255 255 255; /* blanco con opacidad */
+    --color-text-muted-alpha: 0.5;
+    --color-bg: 23 23 23;
+}
+
+@layer base {
+    .hero-ring {
+        @apply absolute inset-0 border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-emerald-300/5 shadow-[0_0_80px_inset] shadow-emerald-300/5;
+    }
+}
