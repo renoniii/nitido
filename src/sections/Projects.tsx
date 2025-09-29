@@ -3,7 +3,6 @@
 import darkSaasLandingPage from "@/assets/images2/dark-saas-landing-page.png";
 import lightSaasLandingPage from "@/assets/images2/light-saas-landing-page.png";
 import aiStartupLandingPage from "@/assets/images2/ai-startup-landing-page.png";
-import { li, line } from "framer-motion/client";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";

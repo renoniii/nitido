@@ -8,10 +8,8 @@ import outsideLogo from "@/assets/images/outside.svg";
 import apexLogo from "@/assets/images/apex.svg";
 import celestialLogo from "@/assets/images/celestial.svg";
 import twiceLogo from "@/assets/images/twice.svg";
-import Image from "next/image";
 import { Fragment } from "react";
 import { motion } from "framer-motion";
-import { line } from "framer-motion/client";
 
 const logos = [
     { name: "Quantum", Icon: quantumLogo },

@@ -1,12 +1,12 @@
 "use client";
 
 import Tag from "@/components/Tag";
-import { useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-const text = `You're racing to create exceptional work, but traditional design tools slow you down with unnecessary complexity and steep learning curves.`;
+const text = `You&apos;re racing to create exceptional work, but traditional design tools slow you down with unnecessary complexity and steep learning curves.`;
 const words = text.split(" ");
 
 export default function Introduction() {
@@ -47,7 +47,7 @@ export default function Introduction() {
                             ))}
                         </span>
                         <span className="text-magenta block">
-                            That's why we built Layers.
+                            That&apos;s why we built Layers.
                         </span>
                     </div>
                 </div>

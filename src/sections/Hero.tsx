@@ -1,7 +1,6 @@
 "use client";
 
 import Button from "@/components/Button";
-import Image from "next/image";
 import grainImage from "@/assets/images2/grain.jpg";
 import StarIcon from "@/assets/icons/star.svg";
 import { HeroOrbit } from "@/components/HeroOrbit";
