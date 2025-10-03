@@ -51,7 +51,7 @@ export default function IntegrationColumn(props: {
                         return (
                             <div
                                 key={integration.name}
-                                className="bg-neutral-900 border border-white/10 rounded-3xl p-6"
+                                className="dark:bg-neutral-900 border dark:border-white/10 border-black/10 bg-white rounded-3xl p-6"
                             >
                                 <div className="flex justify-center">
                                     {Icon && <Icon className="size-24" />}
@@ -60,7 +60,7 @@ export default function IntegrationColumn(props: {
                                 <h3 className="text-3xl text-center mt-5">
                                     {integration.name}
                                 </h3>
-                                <p className="text-center text-muted mt-2">
+                                <p className="text-center dark:text-darkMuted text-lightMuted mt-2">
                                     {integration.description}
                                 </p>
                             </div>

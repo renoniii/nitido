@@ -7,7 +7,7 @@ import { HeroOrbit } from "@/components/HeroOrbit";
 
 export default function Hero() {
     return (
-        <section className="py-5 md:py-24 lg:py-24 2xl:py-48 relative z-0 overflow-x-clip">
+        <section className="py-5 md:py-24 lg:py-24  relative z-0 overflow-x-clip">
             <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
                 <div
                     className="absolute inset-0 -z-30 opacity-5"
@@ -117,11 +117,11 @@ export default function Hero() {
                         ✨ 7.5M seed round raised
                     </div>
                 </div>
-                <h1 className="text-4xl md:text-7xl lg:text-7xl xl:text-8xl text-base font-medium text-center mt-6">
+                <h1 className="text-4xl md:text-7xl lg:text-7xl xl:text-8xl dark:text-dark text-light font-medium text-center mt-6">
                     Impactful design, <br />
                     created effortlessly
                 </h1>
-                <p className="text-center text-xl text-muted mt-8 max-w-2xl mx-auto">
+                <p className="text-center text-xl dark:text-darkMuted text-lightMuted mt-8 max-w-2xl mx-auto">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Totam nobis, explicabo ipsa, cum rem labore sed quis
                     nesciunt voluptatum velit, nam unde? Consequatur facilis

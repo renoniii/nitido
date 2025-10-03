@@ -19,7 +19,7 @@ export default function Footer() {
                             {footerLinks.map((link) => (
                                 <a
                                     href={link.href}
-                                    className="text-muted text-sm"
+                                    className="dark:text-darkMuted text-lightMuted text-sm"
                                 >
                                     {link.label}
                                 </a>

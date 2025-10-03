@@ -26,7 +26,7 @@ export default function LogoTicker() {
     return (
         <section className="py-24 overflow-x-clip">
             <div className="container">
-                <h3 className="text-center text-muted text-xl">
+                <h3 className="text-center dark:text-darkMuted text-lightMuted text-xl">
                     Already chosen by these market leaders
                 </h3>
                 <div className="flex overflow-hidden mt-12 [mask-image:linear-gradient(to{-right,transparent,black_90%,transparent)]">
@@ -46,7 +46,7 @@ export default function LogoTicker() {
                                 {logos.map(({ name, Icon }) => (
                                     <Icon
                                         key={name}
-                                        className="h-12 w-auto text-base dark:hover:text-magenta hover:text-magenta transition"
+                                        className="h-12 w-auto dark:text-dark text-light dark:hover:text-magenta hover:text-magenta transition"
                                     />
                                 ))}
                             </Fragment>

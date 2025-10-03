@@ -6,7 +6,7 @@ export default function Avatar(props: HTMLAttributes<HTMLDivElement>) {
     return (
         <div
             className={twMerge(
-                "size-20 rounded-full overflow-hidden border-4 border-blue-500 p-1 bg-neutral-900",
+                "size-20 rounded-full overflow-hidden border-4 border-blue-500 p-1 dark:bg-neutral-900 bg-white",
                 className
             )}
             {...otherProps}

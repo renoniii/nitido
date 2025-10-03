@@ -40,7 +40,7 @@ export default function Navbar() {
 
                             {/* Nav links desktop */}
                             <div className="lg:flex justify-center items-center hidden">
-                                <nav className="flex gap-6 font-medium text-base">
+                                <nav className="flex gap-6 font-medium dark:text-dark text-light">
                                     {navLinks.map((link) => (
                                         <a href={link.href} key={link.label}>
                                             {link.label}

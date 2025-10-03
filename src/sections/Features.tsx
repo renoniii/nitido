@@ -24,7 +24,7 @@ export default function Features() {
                 <div className="flex justify-center">
                     <Tag>Features</Tag>
                 </div>
-                <h2 className="font-bold text-3xl md:text-6xl lg:text-6xl xl:text-7xl text-center mt-6 max-w-2xl mx-auto">
+                <h2 className="dark:text-dark text-light font-bold text-3xl md:text-6xl lg:text-6xl xl:text-7xl text-center mt-6 max-w-2xl mx-auto">
                     Where power meets{" "}
                     <span className="text-magenta">simplicity</span>
                 </h2>
@@ -33,10 +33,10 @@ export default function Features() {
                         title="Real-time Collaboration"
                         description="Work together seamlessly with conflict-free team
                                 editing"
-                        className="md:col-span-2 lg:col-span-1"
+                        className="dark:text-dark text-light md:col-span-2 lg:col-span-1 dark:bg-neutral-900 bg-white border dark:border-white/10 border-black/10"
                     >
                         <div className="aspect-video flex items-center justify-center">
-                            <Avatar className="z-40">
+                            <Avatar className="z-40 border-magenta">
                                 <Image
                                     src={avatar1}
                                     alt="Avatar 1"
@@ -50,7 +50,7 @@ export default function Features() {
                                     className="rounded-full"
                                 />
                             </Avatar>
-                            <Avatar className="-ml-6 border-amber-500 z-20">
+                            <Avatar className="-ml-6 border-magentadark z-20">
                                 <Image
                                     src={avatar3}
                                     alt="Avatar 3"
@@ -58,7 +58,7 @@ export default function Features() {
                                 />
                             </Avatar>
                             <Avatar className="-ml-6 border-transparent">
-                                <div className="size-full bg-neutral-700 rounded-full inline-flex items-center justify-center gap-1">
+                                <div className="size-full dark:bg-neutral-700 bg-neutral-500 rounded-full inline-flex items-center justify-center gap-1">
                                     {Array.from({ length: 3 }).map((_, i) => (
                                         <span
                                             className="size-1.5 rounded-full bg-white inline-flex"
@@ -73,10 +73,10 @@ export default function Features() {
                         title="interactive Prototyping"
                         description="Engage your clients with prototypes that react
                                 to user actions"
-                        className="md:col-span-2 lg:col-span-1"
+                        className="md:col-span-2 lg:col-span-1 dark:bg-neutral-900 bg-white border dark:border-white/10 border-black/10"
                     >
                         <div className="aspect-video flex items-center justify-center">
-                            <p className="text-4xl font-extrabold text-white/20 text-center">
+                            <p className="text-4xl font-extrabold dark:text-white/20 text-lightMuted text-center">
                                 We&apos;ve achieved{" "}
                                 <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                                     incredible
@@ -89,7 +89,7 @@ export default function Features() {
                         title="Keyboard Quick Actions"
                         description="Powerful commands to help you create designs
                                 more quickly"
-                        className="md:col-span-2 lg:col-span-1 md:col-start-2 lg:col-start-auto"
+                        className="md:col-span-2 lg:col-span-1 md:col-start-2 lg:col-start-auto dark:bg-neutral-900 bg-white"
                     >
                         <div className="aspect-video flex items-center justify-center gap-4">
                             <Key className="w-28">shift</Key>
@@ -102,9 +102,9 @@ export default function Features() {
                     {features.map((feature) => (
                         <div
                             key={feature}
-                            className="bg-neutral-900 border border-white/10 inline-flex px-3 md:px-5 py-1.5 md:py-2 rounded-2xl gap-3 items-center"
+                            className="dark:bg-neutral-900 bg-white border border-white/10 inline-flex px-3 md:px-5 py-1.5 md:py-2 rounded-2xl gap-3 items-center"
                         >
-                            <span className="bg-magenta text-neutral-950 size-5 rounded-full inline-flex items-center justify-center text-xl">
+                            <span className="bg-magenta dark:text-neutral-950 text-white size-5 rounded-full inline-flex items-center justify-center text-xl">
                                 &#10038;
                             </span>
                             <span className="font-medium md:text-lg">

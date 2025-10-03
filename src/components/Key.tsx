@@ -6,7 +6,7 @@ export default function Key(props: HTMLAttributes<HTMLDivElement>) {
     return (
         <div
             className={twMerge(
-                "size-14 bg-neutral-300 inline-flex items-center justify-center rounded-2xl text-xl text-neutral-950 font-medium",
+                "size-14 dark:bg-neutral-300 bg-neutral-500 inline-flex items-center justify-center rounded-2xl text-xl dark:text-neutral-950 text-white font-medium",
                 className
             )}
             {...otherProps}

@@ -40,11 +40,11 @@ export default function Integrations() {
                 <div className="grid lg:grid-cols-2 items-center lg:gap-16">
                     <div>
                         <Tag>Integrations</Tag>
-                        <h2 className="font-bold text-4xl md:text-6xl lg:text-6xl xl:text-7xl mt-6">
+                        <h2 className="dark:text-dark text-light font-bold text-4xl md:text-6xl lg:text-6xl xl:text-7xl mt-6">
                             Plays well with{" "}
                             <span className="text-magenta">Others</span>
                         </h2>
-                        <p className="text-muted mt-4 text-lg">
+                        <p className="dark:text-darkMuted text-lightMuted mt-4 text-lg">
                             Lorem ipsum dolor sit amet consectetur, adipisicing
                             elit. A porro ab eius deserunt, autem aspernatur
                             molestias aut ut rem in, adipisci minima odio

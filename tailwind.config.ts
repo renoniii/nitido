@@ -33,8 +33,11 @@ const config: Config = {
             colors: {
                 magenta: "#F24068",
                 magentadark: "#8F163D",
-                base: "rgb(var(--color-text-base) / <alpha-value>)",
-                muted: "rgb(var(--color-text-muted) / var(--color-text-muted-alpha, 1))",
+                light: "#171717",
+                dark: "#FFFFFF",
+                lightMuted: "#737373",
+                darkMuted: "#FFFFFF80",
+                bone: "#f2f0eb",
             },
             animation: {
                 "ping-large": "ping-large 1s ease-in-out infinite",

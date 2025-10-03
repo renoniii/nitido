@@ -7,9 +7,16 @@ import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images2/grain.jpg";
+import whitegrainImage from "@/assets/images2/whitegrain.jpg";
 import starsBg from "@/assets/images/stars.png";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import {
+    motion,
+    useMotionTemplate,
+    useMotionValue,
+    useScroll,
+    useTransform,
+} from "framer-motion";
+import { RefObject, useEffect, useRef } from "react";
 
 const portfolioProjects = [
     {
@@ -62,6 +69,7 @@ export const ProjectsSection = () => {
         [0, 1],
         [-300, 300]
     );
+
     return (
         <section className="pb-16 lg:py-24" ref={sectionRef}>
             <div className="container">
@@ -73,14 +81,14 @@ export const ProjectsSection = () => {
                 <h2 className="font-bold text-3xl md:text-5xl xl:text-7xl text-center mt-6">
                     Featured Projetcs
                 </h2>
-                <p className="text-center md:text-lg lg:text-xl xl:text-2xl text-muted mt-4 max-w-md mx-auto">
+                <p className="text-center md:text-lg lg:text-xl xl:text-2xl dark:text-darkMuted text-lightMuted mt-4 max-w-md mx-auto">
                     See how I transformed concepts into engaging digital
                 </p>
                 <div className="mt-10 md:mt-20 flex flex-col gap-20">
                     {portfolioProjects.map((project, projectIndex) => (
                         <div
                             key={project.title}
-                            className="text-base bg-black rounded-3xl z-0 overflow-hidden after:z-10 after:content[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl dark:after:outline-white/20 after:outline-gray-300 px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 xl:pt-20 xl:px-32 2xl:pt-24 2xl:px-40 after:pointer-events-none sticky"
+                            className="dark:text-dark text-light dark:bg-black bg-white rounded-3xl z-0 overflow-hidden after:z-10 after:content[''] after:absolute after:inset-0 after:outline-2 after:outline after:-outline-offset-2 after:rounded-3xl dark:after:outline-white/20 after:outline-gray-950/10 px-8 pt-8 md:pt-12 md:px-10 lg:pt-16 lg:px-20 xl:pt-20 xl:px-32 2xl:pt-24 2xl:px-40 after:pointer-events-none sticky"
                             style={{
                                 top: `calc(120px + ${projectIndex * 40}px`,
                             }}
@@ -100,34 +108,41 @@ export const ProjectsSection = () => {
                                     backgroundImage: `url(${starsBg.src})`,
                                 }}
                             ></motion.div>
-                            <motion.div
-                                className="absolute inset-0 -z-10 bg-magenta bg-blend-overlay [mask-image:radial-gradient(50%_50%_at_0px_0px,black,transparent)] transition duration-700"
-                                style={{
-                                    backgroundImage: `url(${starsBg.src})`,
-                                }}
-                            ></motion.div>
                             <div
-                                className="absolute inset-0 -z-10 opacity-15"
+                                className="absolute inset-0 -z-20 bg-magenta bg-blend-overlay [mask-image:radial-gradient(50%_50%_at_0px_20%,black,transparent)] group-hover:opacity-0 transition duration-700"
+                                style={{}}
+                            />
+
+                            <div
+                                className="absolute inset-0 -z-10 opacity-15 hidden dark:block "
                                 style={{
                                     backgroundImage: `url(${grainImage.src})`,
+                                    backgroundRepeat: "repeat",
                                 }}
-                            ></div>
+                            />
+                            <div
+                                className="absolute inset-0 -z-10 opacity-10 dark:hidden"
+                                style={{
+                                    backgroundImage: `url(${whitegrainImage.src})`,
+                                    backgroundRepeat: "repeat",
+                                }}
+                            />
                             <div className="lg:grid lg:grid-cols-2 lg:gap-16">
                                 <div className="lg:pb-16 xl:pb-20 2xl:pb-32">
-                                    <div className="text-magenta inline-flex gap-2 font-bold uppercase tracking-widest text-sm xl:text-lg bg-clip-text">
+                                    <div className="dark:text-dark text-light inline-flex gap-2 font-bold uppercase tracking-widest text-sm xl:text-lg bg-clip-text">
                                         <span>{project.company}</span>
                                         <span>&bull;</span>
                                         <span>{project.year}</span>
                                     </div>
-                                    <h3 className="font-bold text-base text-2xl mt-2 md:text-4xl md:mt-5 xl:text-6xl xl:mt-8">
+                                    <h3 className="font-bold dark:text-dark text-light text-2xl mt-2 md:text-4xl md:mt-5 xl:text-6xl xl:mt-8">
                                         {project.title}
                                     </h3>
-                                    <hr className="border-t-2 dark:border-white/20 border-gray-300 mt-4 md:mt-5" />
+                                    <hr className="border-t-2 dark:border-white/20 border-gray-950/20 mt-4 md:mt-5" />
                                     <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                                         {project.results.map((result) => (
-                                            <li className="flex gap-2 text-sm md:text-base">
-                                                <CheckCircleIcon className="text-muted size-5 md:size-6 xl:size-7" />
-                                                <span className="text-muted 2xl:text-xl">
+                                            <li className="flex gap-2 text-sm md:dark:text-dark text-light">
+                                                <CheckCircleIcon className="dark:text-dark text-light size-5 md:size-6 xl:size-7" />
+                                                <span className="dark:text-dark text-light 2xl:text-xl">
                                                     {result.title}
                                                 </span>
                                             </li>
