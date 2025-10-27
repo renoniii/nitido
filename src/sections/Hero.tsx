@@ -7,7 +7,7 @@ import { HeroOrbit } from "@/components/HeroOrbit";
 
 export default function Hero() {
     return (
-        <section className="py-5 pt-12 md:py-24 lg:py-24  relative z-0 overflow-x-clip">
+        <section className="py-5 pt-12 md:py-24 lg:py-24 relative z-0 overflow-x-clip">
             <div className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_70%,transparent)]">
                 <div
                     className="absolute inset-0 -z-30 opacity-5"
@@ -127,21 +127,11 @@ export default function Hero() {
                     nesciunt voluptatum velit, nam unde? Consequatur facilis
                     voluptate voluptatem reiciendis, inventore ex neque!
                 </p>
-                <form className="flex border dark:border-white/15 border-gray-300 rounded-full p-2 mt-8 max-w-lg mx-auto">
-                    <input
-                        type="email"
-                        placeholder="Enter your email"
-                        className="bg-transparent px-4 md:flex-1 w-full"
-                    />
-                    <Button
-                        type="submit"
-                        variant="primary"
-                        className="whitespace-nowrap"
-                        size="sm"
-                    >
-                        Sign Up
+                <div className="flex justify-center mt-10">
+                    <Button as="a" href="#form" variant="primary">
+                        Contáctanos
                     </Button>
-                </form>
+                </div>
             </div>
         </section>
     );

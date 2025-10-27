@@ -2,29 +2,51 @@
 
 import LogoImage from "@/assets/images/logo2.svg";
 import Button from "@/components/Button";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 
+const NAVBAR_OFFSET = 96; // ajusta a la altura real de tu navbar
+
+// ahora usamos id en lugar de href directo
 const navLinks = [
-    { label: "Home", href: "#" },
-    { label: "Portafolio", href: "#" },
-    { label: "Servicios", href: "#features" },
-    { label: "Integrations", href: "#integrations" },
-    { label: "FAQs", href: "#faqs" },
+    { label: "Inicio", id: "hero" },
+    { label: "Servicios", id: "features" },
+    { label: "Herramientas", id: "integrations" }, // (antes “Apps”)
+    { label: "Portafolio", id: "portfolio" },
 ];
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [darkMode, setDarkMode] = useState(true);
+    const isScrollingRef = useRef(false);
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
-        if (darkMode) {
-            document.documentElement.classList.remove("dark");
-        } else {
-            document.documentElement.classList.add("dark");
-        }
+        if (darkMode) document.documentElement.classList.remove("dark");
+        else document.documentElement.classList.add("dark");
+    };
+
+    const handleNavClick = (
+        e: React.MouseEvent<HTMLAnchorElement>,
+        targetId: string
+    ) => {
+        e.preventDefault();
+        if (isScrollingRef.current) return;
+
+        const el = document.getElementById(targetId);
+        if (!el) return;
+
+        isScrollingRef.current = true;
+
+        const y =
+            el.getBoundingClientRect().top + window.scrollY - NAVBAR_OFFSET;
+        window.scrollTo({ top: y, behavior: "smooth" });
+
+        setIsOpen(false); // cierra menú móvil si estaba abierto
+        setTimeout(() => {
+            isScrollingRef.current = false;
+        }, 600);
     };
 
     return (
@@ -38,11 +60,18 @@ export default function Navbar() {
                                 <LogoImage className="h-9 md:h-auto w-auto" />
                             </div>
 
-                            {/* Nav links desktop */}
+                            {/* Links desktop */}
                             <div className="lg:flex justify-center items-center hidden">
                                 <nav className="flex gap-6 font-medium dark:text-dark text-light">
                                     {navLinks.map((link) => (
-                                        <a href={link.href} key={link.label}>
+                                        <a
+                                            key={link.id}
+                                            href={`#${link.id}`}
+                                            onClick={(e) =>
+                                                handleNavClick(e, link.id)
+                                            }
+                                            className="cursor-pointer"
+                                        >
                                             {link.label}
                                         </a>
                                     ))}
@@ -51,14 +80,13 @@ export default function Navbar() {
 
                             {/* Actions */}
                             <div className="flex justify-end gap-4 items-center">
-                                {/* Toggle dark mode */}
+                                {/* Toggle dark */}
                                 <button
                                     onClick={toggleDarkMode}
                                     className="p-2 rounded-full text-gray-400 dark:text-gray-300 hover:bg-gray-100/20 dark:hover:bg-gray-700 hover:text-magenta dark:hover:text-magenta transition duration-300"
                                     aria-label="Toggle theme"
                                 >
                                     {darkMode ? (
-                                        // ☀️ Sun
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="20"
@@ -86,7 +114,6 @@ export default function Navbar() {
                                             <path d="m19.07 4.93-1.41 1.41"></path>
                                         </svg>
                                     ) : (
-                                        // 🌙 Moon
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="20"
@@ -104,15 +131,15 @@ export default function Navbar() {
                                     )}
                                 </button>
 
-                                {/* Sign Up button (se mantiene igual) */}
+                                {/* CTA */}
                                 <Button
                                     variant="primary"
                                     className="hidden md:inline-flex items-center"
                                 >
-                                    Sign Up
+                                    Contáctanos
                                 </Button>
 
-                                {/* Mobile menu button */}
+                                {/* Mobile menu */}
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="24"
@@ -135,7 +162,7 @@ export default function Navbar() {
                                             "origin-left transition",
                                             isOpen && "rotate-45 -translate-y-1"
                                         )}
-                                    ></line>
+                                    />
                                     <line
                                         x1="3"
                                         y1="12"
@@ -145,7 +172,7 @@ export default function Navbar() {
                                             "transition",
                                             isOpen && "opacity-0"
                                         )}
-                                    ></line>
+                                    />
                                     <line
                                         x1="3"
                                         y1="18"
@@ -155,7 +182,7 @@ export default function Navbar() {
                                             "origin-left transition",
                                             isOpen && "-rotate-45 translate-y-1"
                                         )}
-                                    ></line>
+                                    />
                                 </svg>
                             </div>
                         </div>
@@ -172,12 +199,22 @@ export default function Navbar() {
                                     <div className="flex flex-col items-center gap-4 py-4">
                                         {navLinks.map((link) => (
                                             <a
-                                                href={link.href}
-                                                key={link.label}
+                                                key={link.id}
+                                                href={`#${link.id}`}
+                                                onClick={(e) =>
+                                                    handleNavClick(e, link.id)
+                                                }
+                                                className="cursor-pointer"
                                             >
                                                 {link.label}
                                             </a>
                                         ))}
+                                        <Button
+                                            variant="primary"
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            Contáctanos
+                                        </Button>
                                     </div>
                                 </motion.div>
                             )}
@@ -185,6 +222,8 @@ export default function Navbar() {
                     </div>
                 </div>
             </section>
+
+            {/* espacio de compensación del header fijo */}
             <div className="pb-[86px] md:pb-[98px] lg:pb-[130px]"></div>
         </>
     );

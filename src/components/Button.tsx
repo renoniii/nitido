@@ -1,33 +1,46 @@
-import { ButtonHTMLAttributes } from "react";
+import { ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 import { cva } from "class-variance-authority";
+import { twMerge } from "tailwind-merge";
 
-const classes = cva("border h-12 rounded-full px-6 font-medium", {
-    variants: {
-        variant: {
-            primary: "bg-magenta text-neutral-950 text-white border-magenta",
-            secondary: "border-white text-white bg-transparent",
+const classes = cva(
+    "border h-12 rounded-full px-6 font-medium inline-flex items-center justify-center",
+    {
+        variants: {
+            variant: {
+                primary: "bg-magenta text-white border-magenta",
+                secondary: "border-white text-white bg-transparent",
+            },
+            size: {
+                sm: "h-10 text-sm",
+            },
         },
-        size: {
-            sm: "h-10",
-        },
-    },
-});
+    }
+);
+
+type ButtonProps =
+    | ({ as?: "button" } & ButtonHTMLAttributes<HTMLButtonElement>)
+    | ({ as: "a"; href: string } & AnchorHTMLAttributes<HTMLAnchorElement>);
 
 export default function Button(
-    props: {
-        variant: "primary" | "secondary";
-        size?: "sm";
-    } & ButtonHTMLAttributes<HTMLButtonElement>
+    props: ButtonProps & { variant: "primary" | "secondary"; size?: "sm" }
 ) {
-    const { variant, className, size, ...otherProps } = props;
+    const { variant, className, size, as = "button", ...otherProps } = props;
+
+    const mergedClassName = twMerge(classes({ variant, size, className }));
+
+    if (as === "a") {
+        return (
+            <a
+                className={mergedClassName}
+                {...(otherProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
+            />
+        );
+    }
+
     return (
         <button
-            className={classes({
-                variant,
-                size,
-                className,
-            })}
-            {...otherProps}
+            className={mergedClassName}
+            {...(otherProps as ButtonHTMLAttributes<HTMLButtonElement>)}
         />
     );
 }

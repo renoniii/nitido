@@ -78,7 +78,7 @@ export const ProjectsSection = () => {
                         Real-world Results
                     </p>
                 </div>
-                <h2 className="font-bold text-3xl md:text-5xl xl:text-7xl text-center mt-6">
+                <h2 className="font-bold text-3xl md:text-6xl lg:text-6xl xl:text-7xl text-center mt-6 ">
                     Featured Projetcs
                 </h2>
                 <p className="text-center md:text-lg lg:text-xl xl:text-2xl dark:text-darkMuted text-lightMuted mt-4 max-w-md mx-auto">
